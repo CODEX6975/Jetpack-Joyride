@@ -5,7 +5,7 @@ using UnityEngine;
 public class CamerScript : MonoBehaviour
 {
 
-  public Player player;
+  public PlayerControl player;
 
     // Start is called before the first frame update
     void Start()

@@ -7,12 +7,12 @@ public class PlayerControl : MonoBehaviour{
 
     public float jumpforce;
     Rigidbody2D body;
-
-    bool gameOver = false;
+  
+    public bool gameOver = false;
     // Start is called before the first frame update
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();             //Reference:discussions.unity.com/t/get-rigidbody2d-component-in-script-c/134164/2
+        body = GetComponent<Rigidbody2D>();                 //Reference:discussions.unity.com/t/get-rigidbody2d-component-in-script-c/134164/2
     }
 
     // FixedUpdate is linked with the physics engine instead of graphics engine(just googled it)
@@ -20,16 +20,18 @@ public class PlayerControl : MonoBehaviour{
 
     if(gameOver){
         
-        if(Input.GetKey(KeyCode.Space)){
-            SceneManeger.LoadScene("SampleScene");
+        if(Input.GetKeyDown(KeyCode.Space)){
+            SceneManager.LoadScene("SampleScene");          //reset game
         }
+        return;
     }
     
-    if(Input.GetKey(KeyCode.Space)) {       //using 'GetKey' instead of 'GetKeyDown' as we need the player to keep moving up(learned thhis in class)
-        body.velocity = Vector3.up * jumpforce;                             //Reference:www.youtube.com/watch?v=j111eKN8sJw      
+    if(Input.GetKey(KeyCode.Space)) {                        //using 'GetKey' instead of 'GetKeyDown' as we need the player to keep moving up(learned thhis in class)
+        body.velocity = Vector3.up * jumpforce;              //Reference:www.youtube.com/watch?v=j111eKN8sJw      
         }
     }
     void OnTriggerEnter(Collider collider) {
         gameOver = true;
+        body.isKinematic = true;
     }
 }

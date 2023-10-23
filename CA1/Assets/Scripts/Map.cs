@@ -35,18 +35,18 @@ public class Map : MonoBehaviour{
 
         obstacle1 = GenerateObstacle(player.transform.position.x + 10);       //moving spawned obstacle away from the player in the beginning
 
-        obstacle2 =  GenerateObstacle(obstacle1.transform.position.x);
+        obstacle2 =  GenerateObstacle(obstacle1.transform.position.x);          
 
         obstacle3 =  GenerateObstacle(obstacle2.transform.position.x);
 
-        obstacle4 =  GenerateObstacle(obstacle3.transform.position.x);                         
-        }
+        obstacle4 =  GenerateObstacle(obstacle3.transform.position.x);        //using pre-assigned values to assign size and position to the obstacle
+    }
 
     GameObject GenerateObstacle(float referenceX){                      //https://www.youtube.com/watch?v=ofZtyysHp1s&t=1167s
 
         GameObject obstacle = GameObject.Instantiate(obstaclePrefab);       //spawning obstacle(learned this from enemy spawning script in class)
         SetTransform(obstacle, referenceX);
-        return obstacle;                                                   //using pre-assigned values to assign size and position to the obstacle
+        return obstacle;                                                   
 
     }                                        
 
