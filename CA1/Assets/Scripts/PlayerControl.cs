@@ -30,7 +30,7 @@ public class PlayerControl : MonoBehaviour{
         body.velocity = Vector3.up * jumpforce;              //Reference:www.youtube.com/watch?v=j111eKN8sJw      
         }
     }
-    void OnTriggerEnter(Collider collider) {
+    void OnTriggerEnter2D(Collider2D other) {                
         gameOver = true;
         body.isKinematic = true;
     }
